@@ -1,7 +1,7 @@
 import os
 import json
 
-directory = './json'  # Replace with the path to your directory
+directory = './8-23-json'  # Replace with the path to your directory
 
 for filename in os.listdir(directory):
     if filename.endswith('.json'):
@@ -11,7 +11,8 @@ for filename in os.listdir(directory):
             
             # Add 'keyword' field to each record in the JSON file
             for record in data:
-                record['keyword'] = filename
+                # Remove the '.json' extension from the filename
+                record['keyword'] = filename[:-5]
             
             # Move file pointer to the beginning of the file
             file.seek(0)
